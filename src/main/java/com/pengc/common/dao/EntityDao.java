@@ -12,6 +12,10 @@ public class EntityDao {
 
 	
 	
+	
+	
+	
+	
 	@Autowired
 	private HibernateTemplate hibernateTemplate;
 
