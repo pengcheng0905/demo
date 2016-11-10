@@ -13,7 +13,7 @@
 <!-- GANTT -->
 <script type="text/javascript" src="/resources/extgantt/js/gantt-all-debug.js"></script>
 <link rel="stylesheet" href="/resources/extgantt/css/sch-gantt-neptune-all.css"></link>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	Ext.Loader.setConfig({
 		enabled : true,
 		paths : {
@@ -22,4 +22,4 @@
 	});
 	Ext.require([ 'common.ListGrid',
 	              'common.Popup' ]);
-</script>
+</script> -->

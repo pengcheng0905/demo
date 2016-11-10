@@ -52,6 +52,6 @@
 		<param-value>/WEB-INF/applicationContext.xml</param-value>
 	</context-param>
 	<welcome-file-list>
-		<welcome-file>login</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>
