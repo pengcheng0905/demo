@@ -1,3 +1,1 @@
-AAAAAAA
-BBBBBBBB
-CCCCCCCC
+只限于学习，不可用作商业用途。
