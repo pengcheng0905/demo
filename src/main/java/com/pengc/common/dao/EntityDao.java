@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class EntityDao {
 
+	
+	
 	@Autowired
 	private HibernateTemplate hibernateTemplate;
 
