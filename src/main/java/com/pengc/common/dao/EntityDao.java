@@ -3,21 +3,28 @@ package com.pengc.common.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.pengc.common.model.EntityModel;
+
 @Repository
-public class EntityDao {
+public class EntityDao<T extends EntityModel> {
 
 	@Autowired
 	private HibernateTemplate hibernateTemplate;
 
-	public <T> T findById(Class<T> type, Serializable id) {
-		return hibernateTemplate.get(type, id);
+	public T findById(Class<T> t, Serializable id) {
+		return hibernateTemplate.get(t, id);
+	}
+	
+	public List<T> findByEntity(T t) {
+		return hibernateTemplate.findByExample(t);
 	}
 
-	public <T> List<T> findAll(Class<T> type) {
+	public List<T> findAll(Class<T> type) {
 		return hibernateTemplate.loadAll(type);
 	}
 
@@ -45,11 +52,11 @@ public class EntityDao {
 		}
 	}
 
-	public void deleteById(Class<?> type, Serializable id) {
+	public void deleteById(Class<T> type, Serializable id) {
 		if (id == null) {
 			return;
 		}
-		Object entity = findById(type, id);
+		T entity = findById(type, id);
 		if (entity == null) {
 			return;
 		}
@@ -64,5 +71,10 @@ public class EntityDao {
 
 	public void flush() {
 		hibernateTemplate.flush();
+	}
+	
+	public SessionFactory getSessionFactory(){
+		SessionFactory sessionFactory = hibernateTemplate.getSessionFactory();
+		return sessionFactory;
 	}
 }

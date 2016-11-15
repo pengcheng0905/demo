@@ -3,10 +3,11 @@ package com.pengc.play.dao;
 import org.springframework.stereotype.Repository;
 
 import com.pengc.common.dao.EntityDao;
+import com.pengc.play.model.Users;
 
 /**
- * 这个类将dao成封装成了一个操作类，从网上复制过来的。
+ * 锟斤拷锟斤拷嘟玠ao锟缴凤拷装锟斤拷锟斤拷一锟斤拷锟斤拷锟斤拷锟洁，锟斤拷锟斤拷锟较革拷锟狡癸拷锟斤拷锟侥★拷
  */
 @Repository
-public class UsersDao extends EntityDao {
+public class UsersDao extends EntityDao<Users> {
 }

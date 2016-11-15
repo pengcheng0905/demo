@@ -40,6 +40,7 @@ public class LoginController {
 	@ResponseBody
 	public ReturnData<Users> checkUser(@ModelAttribute Users user) {
 		ReturnData<Users> returnData = new ReturnData<Users>();
+		userService.login(user);
 		returnData.setSuccess("123".equals(user.getUsername()) && "123".equals(user.getPassword()));
 		return returnData;
 	}

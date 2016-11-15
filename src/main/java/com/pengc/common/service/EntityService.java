@@ -1,19 +1,12 @@
 package com.pengc.common.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.pengc.common.dao.EntityDao;
+import com.pengc.common.model.EntityModel;
 
-@Service
+//@Service
 //@Transactional(readOnly = false)
-public class EntityService {
+public abstract class EntityService<T extends EntityModel> {
 
-	@Autowired
-	private EntityDao EntityDao;
-
-	public EntityDao getEntityDao() {
-		return EntityDao;
-	}
+	public abstract EntityDao<T> getEntityDao();
 
 }
