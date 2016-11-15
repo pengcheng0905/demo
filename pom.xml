@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.miquan</groupId>
-	<artifactId>springmvc_spring_hibernate</artifactId>
+	<groupId>com.pengc</groupId>
+	<artifactId>play</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springmvc_spring_hibernate Maven Webapp</name>
+	<name>play</name>
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
@@ -56,12 +56,14 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.18</version>
 		</dependency>
+		
 		<!-- POSTGRESQL -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.4.1210</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
@@ -77,7 +79,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>springmvc_spring_hibernate</finalName>
+		<finalName>play</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
