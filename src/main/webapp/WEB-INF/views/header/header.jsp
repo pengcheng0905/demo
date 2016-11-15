@@ -3,6 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <!-- EXTJS 6.0 -->
 <script type="text/javascript" src="/resources/ext-6.0.0/build/ext-all-debug.js"></script>

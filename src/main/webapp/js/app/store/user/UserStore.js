@@ -1,4 +1,4 @@
-Ext.define('Play.store.UserStore', {
+Ext.define('Play.store.user.UserStore', {
 
 	extend : 'Ext.data.Store',
 	// fields : [ 'id', 'name', 'email' ]

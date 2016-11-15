@@ -3,7 +3,7 @@ Ext.define('Play.view.user.UserList', {
 	alias : 'widget.userlist',
 
 	title : 'All Users',
-	store : [ 'store.UserStore' ],
+	store : [ 'user.UserStore' ],
 
 	initComponent : function() {
 

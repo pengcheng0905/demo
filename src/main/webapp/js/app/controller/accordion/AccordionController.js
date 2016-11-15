@@ -1,8 +1,6 @@
-Ext.define('Play.controller.UserController', {
+Ext.define('Play.controller.accordion.AccordionController', {
 	extend : 'Ext.app.Controller',
-	views : [ 'user.UserList' ],
-	stores : [ 'UserStore' ],
-	model : [ 'UserModel' ],
+	views : [ 'accordion.Accordion' ],
 
 	init : function() {
 		this.control({
