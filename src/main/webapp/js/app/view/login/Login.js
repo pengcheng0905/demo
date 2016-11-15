@@ -29,6 +29,12 @@ Ext.define('Play.view.login.Login', {
 			labelWidth : 50,
 			width : 150
 		}, {
+			xtype : 'displayfield',
+			fieldLabel : '验证码',
+			id : 'verificationCode',
+			width : 50,
+			hideLabel : true
+		}, {
 			xtype : 'panel',
 			html : '<a href="second.js">注册</a>',
 		} ],

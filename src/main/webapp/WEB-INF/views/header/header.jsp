@@ -20,3 +20,4 @@
 <!-- GANTT -->
 <script type="text/javascript" src="/resources/ext-6.0.0-gantt/js/gantt-all-debug.js"></script>
 <link rel="stylesheet" href="/resources/ext-6.0.0-gantt/css/sch-gantt-neptune-all.css"></link>
+<jsp:include page="cssHeader.jsp" />
