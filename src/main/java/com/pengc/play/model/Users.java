@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import com.pengc.common.model.EntityModel;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class Users extends EntityModel {
 
 	private static final long serialVersionUID = -3432983318207511802L;
