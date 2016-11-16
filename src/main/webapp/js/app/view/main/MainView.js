@@ -5,7 +5,6 @@ Ext.define('Play.view.main.MainView', {
 	margins : '0 5 0 0',
 	activeTab : 0,
 	id : 'mainTabPanel',
-	title : 'center',
 	tools : [ {
 		type : 'refresh',
 		tooltip : 'Refresh form Data',

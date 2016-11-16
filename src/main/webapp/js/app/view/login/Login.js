@@ -22,29 +22,34 @@ Ext.define('Play.view.login.Login', {
 			xtype : 'textfield',
 			labelWidth : 50,
 			fieldLabel : '密码',
+			inputType : 'password',
 			name : 'password'
 		}, {
-			xtype : 'textfield',
-			fieldLabel : '验证码',
-			labelWidth : 50,
-			width : 150
-		}, {
-			xtype : 'displayfield',
-			fieldLabel : '验证码',
-			id : 'verificationCode',
-			width : 50,
-			hideLabel : true
+			xtype : 'container',
+			layout : 'column',
+			items : [ {
+				xtype : 'textfield',
+				fieldLabel : '验证码',
+				labelWidth : 50,
+				width : 150
+			}, {
+				xtype : 'displayfield',
+				fieldLabel : '验证码',
+				id : 'verificationCode',
+				width : 50,
+				hideLabel : true
+			} ]
 		}, {
 			xtype : 'panel',
 			html : '<a href="second.js">注册</a>',
-		} ],
-		buttons : [ {
-			text : '登录',
-			action : "login"
-		}, {
-			text : '重置',
-			action : 'reset'
 		} ]
+	} ],
+	buttons : [ {
+		text : '登录',
+		action : "login"
+	}, {
+		text : '重置',
+		action : 'reset'
 	} ]
 
 });
