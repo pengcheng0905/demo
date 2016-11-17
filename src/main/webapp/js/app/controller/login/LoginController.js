@@ -56,11 +56,11 @@ Ext.define('Play.controller.login.LoginController', {
 						Ext.Msg.alert('欢迎', '欢迎您，尊敬的 ' + result.datas[0].username);
 						Ext.getCmp('loginWin').close();
 					} else {
-						Ext.Msg.alert('Failed', '请重试');
+						Ext.Msg.alert('失败', '请重试');
 					}
 				},
 				failure : function(form, action) {
-					Ext.Msg.alert('Failed', '请重试');
+					Ext.Msg.alert('失败', '请重试');
 				}
 			});
 		}
