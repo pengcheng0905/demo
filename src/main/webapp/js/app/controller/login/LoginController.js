@@ -14,10 +14,10 @@ Ext.define('Play.controller.login.LoginController', {
 			'loginwindow button[action=login]' : {
 				click : this.loginFunc
 			},
-			'loginForm textfield[id=verificationCode]' : {
+			'loginwindow textfield[id=verificationCode]' : {
 				afterrender : this.buildVerificationCode
 			},
-			'loginForm textfield[id=verificationCode]' : {
+			'loginwindow textfield[id=verificationCode]' : {
 				click : this.buildVerificationCode
 			}
 		});
