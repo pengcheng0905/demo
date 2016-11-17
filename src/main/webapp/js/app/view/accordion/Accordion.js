@@ -1,7 +1,7 @@
 Ext.define('Play.view.accordion.Accordion', {
 	extend : 'Ext.panel.Panel',
 	alias : 'widget.accordionview',
-	title : "west",
+	title : "菜单",
 	layout : "accordion",
 	layoutConfig : {
 		animate : true

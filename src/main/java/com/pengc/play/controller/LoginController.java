@@ -1,5 +1,7 @@
 package com.pengc.play.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -40,8 +42,9 @@ public class LoginController {
 	@ResponseBody
 	public ReturnData<Users> checkUser(@ModelAttribute Users user) {
 		ReturnData<Users> returnData = new ReturnData<Users>();
-		userService.login(user);
-		returnData.setSuccess("123".equals(user.getUsername()) && "123".equals(user.getPassword()));
+		List<Users> userList = userService.login(user);
+		returnData.setSuccess(userList.size() == 1);
+		returnData.setDatas(userList);
 		return returnData;
 	}
 }

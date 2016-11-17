@@ -7,6 +7,9 @@ Ext.define('Play.controller.login.LoginController', {
 			'viewport > panel' : {
 				render : this.onPanelRendered
 			},
+			'viewport > panel' : {
+				afterrender : this.afterPanelRendered
+			},
 			// 别名 + 类型
 			'loginwindow button[action=reset]' : {
 				click : this.resetFunc
@@ -14,13 +17,20 @@ Ext.define('Play.controller.login.LoginController', {
 			'loginwindow button[action=login]' : {
 				click : this.loginFunc
 			},
+<<<<<<< HEAD
 			'loginwindow textfield[id=verificationCode]' : {
 				afterrender : this.buildVerificationCode
 			},
 			'loginwindow textfield[id=verificationCode]' : {
+=======
+			'loginwindow text[name=verificationCode]' : {
+>>>>>>> refs/remotes/origin/master
 				click : this.buildVerificationCode
 			}
 		});
+	},
+	control : {
+
 	},
 	refs : [ {
 		ref : 'loginForm',// name
@@ -32,6 +42,9 @@ Ext.define('Play.controller.login.LoginController', {
 	onPanelRendered : function() {
 		console.log('The login window was rendered');
 	},
+	afterPanelRendered : function() {
+		this.buildVerificationCode();
+	},
 
 	resetFunc : function() {
 		this.getLoginForm().getForm().reset();
@@ -42,32 +55,33 @@ Ext.define('Play.controller.login.LoginController', {
 		if (form.isValid()) {
 			form.submit({
 				success : function(form, action) {
-					Ext.Msg.alert('Success', action.result.msg);
-					Ext.getCmp('loginWin').close();
+					var result = action.result;
+					if (result.success) {
+						Ext.Msg.alert('欢迎', '欢迎您，尊敬的 ' + result.datas[0].username);
+						Ext.getCmp('loginWin').close();
+					} else {
+						Ext.Msg.alert('Failed', '请重试');
+					}
 				},
 				failure : function(form, action) {
-					Ext.Msg.alert('Failed', action.result.msg);
+					Ext.Msg.alert('Failed', '请重试');
 				}
 			});
 		}
 	},
 	buildVerificationCode : function() {
 		var code = "";
-		debugger;
 		var codeLength = 6;// 验证码的长度
-		var checkCode = document.getElementById("checkCode");
-		var selectChar = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C',
-				'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
-				'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');// 所有候选组成验证码的字符，当然也可以用中文的
-
-		for (var i = 0; i < codeLength; i++) {
-			var charIndex = Math.floor(Math.random() * 36);
-			code += selectChar[charIndex];
-		}
-		// alert(code);
+		var checkCode = Ext.getCmp('verificationCode');
 		if (checkCode) {
-			checkCode.className = "verificationCode";
-			checkCode.value = code;
+			var selectChar = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');// 所有候选组成验证码的字符，当然也可以用中文的
+
+			for (var i = 0; i < codeLength; i++) {
+				var charIndex = Math.floor(Math.random() * 36);
+				code += selectChar[charIndex];
+			}
+			checkCode.cls = "verificationCode";
+			checkCode.setValue(code);
 		}
 	}
 });
