@@ -17,8 +17,10 @@ public class ApacheListenersController extends ListenersController {
 	public final static String APACHE_PAGE = "/apache/apacheList";
 	public final static String APACHE_URL = "http://localhost/server-status";
 
+
 	@RequestMapping(value = "")
 	public String list() {
+		logger.info(APACHE_PAGE);
 		return APACHE_PAGE;
 	}
 
