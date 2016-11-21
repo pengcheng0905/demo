@@ -1,8 +1,8 @@
-Ext.define('Apache.view.list', {
+Ext.define('Apache.view.ApacheList', {
 	extend : 'Ext.grid.Panel',
 	alias : 'widget.apachelist',
 
-	store : 'store',
+	store : 'ApacheStore',
 	initComponent : function() {
 
 		this.columns = [ {

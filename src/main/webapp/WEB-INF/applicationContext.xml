@@ -14,7 +14,7 @@
 
 	<!-- 自动扫面注解包 -->
 	<context:annotation-config />
-	<context:component-scan base-package="com.pengc.play*" />
+	<context:component-scan base-package="com.pengc.*" />
 
 	<!-- 数据源 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"

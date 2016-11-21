@@ -1,4 +1,4 @@
-Ext.define('Apache.model.model', {
+Ext.define('Apache.model.ApacheModel', {
 	extend : 'Ext.data.Model',
 	fields : [ {
 		name : 'firstName',

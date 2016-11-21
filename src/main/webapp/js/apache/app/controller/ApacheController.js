@@ -1,7 +1,7 @@
-Ext.define('Apache.controller.controller', {
+Ext.define('Apache.controller.ApacheController', {
 	extend : 'Ext.app.Controller',
-	views : [ 'list' ],
-	stores : [ 'store' ],
+	views : [ 'ApacheList' ],
+	stores : [ 'ApacheStore' ],
 
 	init : function() {
 		this.control({
