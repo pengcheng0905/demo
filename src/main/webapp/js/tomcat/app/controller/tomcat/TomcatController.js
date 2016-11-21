@@ -1,8 +1,8 @@
-Ext.define('Play.controller.menu.MenuController', {
+Ext.define('Play.controller.user.UserController', {
 	extend : 'Ext.app.Controller',
-	views : [ 'menu.MainMenu' ],
-	stores : [ 'menu.MenuStore' ],
-	model : [ 'menu.MenuModel' ],
+	views : [ 'user.UserList' ],
+	stores : [ 'user.UserStore' ],
+	model : [ 'user.UserModel' ],
 
 	init : function() {
 		this.control({

@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<!-- 存在controller的包。注意这里写的是包名，不是类名 -->
-	<context:component-scan base-package="com.pengc.play.controller" />
+	<context:component-scan base-package="com.pengc.play.controller, com.pengc.listeners.controller" />
 	<context:annotation-config />
 	<mvc:annotation-driven />
 

@@ -1,6 +1,6 @@
 Ext.application({
-	name : 'Play',
-	appFolder : 'js/app',
+	name : 'Apache',
+	appFolder : 'js/listeners/app',
 	controllers : [ 'user.UserController',
 	                'accordion.AccordionController',
 	                'main.MainController',
@@ -9,9 +9,9 @@ Ext.application({
 	launch : function() {
 		Ext.create('Ext.container.Viewport', {
 			layout : 'border',
-			items : [ {
+			items : [/* {
 				xtype : 'loginwindow'
-			}, {
+			}, */{
 				xtype : 'accordionview'
 			}, {
 				xtype : 'mainview'

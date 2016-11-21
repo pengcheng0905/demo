@@ -2,9 +2,8 @@
 <html>
 <head>
 <title>Main Page</title>
-<script type="text/javascript" src="/js/main/app.js"></script>
+<script type="text/javascript" src="/js/apache/app.js"></script>
 </head>
 <body>
-
 </body>
 </html>
