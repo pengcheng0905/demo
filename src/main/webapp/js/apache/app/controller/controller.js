@@ -1,6 +1,7 @@
 Ext.define('Apache.controller.controller', {
 	extend : 'Ext.app.Controller',
 	views : [ 'list' ],
+	stores : [ 'store' ],
 
 	init : function() {
 		this.control({
@@ -11,7 +12,7 @@ Ext.define('Apache.controller.controller', {
 	},
 	refs : [],
 	onPanelRendered : function() {
-		console.log('The login window was rendered');
+		console.log('The Apache listeners was rendered');
 	},
 
 });

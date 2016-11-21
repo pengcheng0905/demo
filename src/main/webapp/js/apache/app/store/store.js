@@ -1,16 +1,13 @@
 Ext.define('Apache.store.store', {
-	extend : 'Ext.data.store',
-	data : [ {
-		firstName : 'Ed',
-		lastName : 'Spencer'
-	}, {
-		firstName : 'Tommy',
-		lastName : 'Maintz'
-	}, {
-		firstName : 'Aaron',
-		lastName : 'Conran'
-	}, {
-		firstName : 'Jamie',
-		lastName : 'Avins'
-	} ]
+	extend : 'Ext.data.Store',
+	model : 'Apache.model.model',
+	proxy : {
+		type : 'ajax',
+		url : '/apache/data',
+		reader : {
+			type : 'json',
+			rootProperty : 'users'
+		}
+	},
+	autoLoad : true
 });
