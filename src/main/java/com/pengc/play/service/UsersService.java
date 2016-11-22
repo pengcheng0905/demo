@@ -26,6 +26,10 @@ public class UsersService extends EntityService<Users> {
 		return getEntityDao().findByEntity(user);
 	}
 
+	public List<Users> getAll() {
+		return getEntityDao().findAll(Users.class);
+	}
+
 	@Override
 	public EntityDao<Users> getEntityDao() {
 		return userDao;

@@ -1,5 +1,8 @@
 package com.pengc.listeners.controller;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +20,6 @@ public class ApacheListenersController extends ListenersController {
 	public final static String APACHE_PAGE = "/apache/apacheList";
 	public final static String APACHE_URL = "http://localhost/server-status";
 
-
 	@RequestMapping(value = "")
 	public String list() {
 		logger.info(APACHE_PAGE);
@@ -26,8 +28,15 @@ public class ApacheListenersController extends ListenersController {
 
 	@RequestMapping(value = "data")
 	@ResponseBody
-	public Boolean getData() {
-		return apacheService.isActived(APACHE_URL);
+	public String getData() {
+		JSONArray ja = new JSONArray();
+		Document html = apacheService.getHtml(APACHE_URL);
+		if (html != null) {
+			ja = apacheService.getApacheStatusInfo(html);
+		}
+		JSONObject jo = new JSONObject();
+		jo.put("datas", ja);
+		return jo.toString();
 	}
 
 }

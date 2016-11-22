@@ -1,9 +1,9 @@
-Ext.define('Apache.store.ApacheStore', {
+Ext.define('User.store.UserStore', {
 	extend : 'Ext.data.Store',
-	model : 'Apache.model.ApacheModel',
+	model : 'User.model.UserModel',
 	proxy : {
 		type : 'ajax',
-		url : '/apache/data',
+		url : '/users/data',
 		reader : {
 			type : 'json',
 			rootProperty : 'datas'

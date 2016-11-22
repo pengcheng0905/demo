@@ -8,12 +8,8 @@ import java.net.URLConnection;
 
 import javax.persistence.Embeddable;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 @Embeddable
 public abstract class ListenersService {
@@ -47,42 +43,20 @@ public abstract class ListenersService {
 		String s;
 		try {
 			while ((s = bufferedReader.readLine()) != null) {
-				 System.out.println(s);
+				System.out.println(s);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public JSONObject get(String url) {
+	public Document getHtml(String url) {
 		Document doc = null;
-		Elements tables = null;
 		try {
 			doc = Jsoup.connect(url).get();
-			tables = doc.getElementsByTag("table");
-			;
 		} catch (IOException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
-
-		JSONObject tableJo = new JSONObject();
-		for (int t = 0; t < tables.size(); t++) {
-			Element table = tables.get(t);
-			JSONArray tableArr = new JSONArray();
-			// tables
-			Elements rows = table.getElementsByTag("tr");
-			for (int i = 0; i < rows.size(); i++) {
-				Elements elements = table.getElementsByTag("th");
-				for (int j = 0; j < elements.size(); j++) {
-					Element e = elements.get(j);
-					JSONObject header = new JSONObject();
-					header.put(String.valueOf(j), e.text());
-					tableArr.put(header);
-				}
-
-			}
-			tableJo.put(String.valueOf(t), tableArr);
-		}
-		return tableJo;
+		return doc;
 	}
 }

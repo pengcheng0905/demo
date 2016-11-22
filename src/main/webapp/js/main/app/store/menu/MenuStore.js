@@ -5,7 +5,7 @@ Ext.define('Play.store.menu.MenuStore', {
 		children : [ {
 			text : 'User List',
 			leaf : true,
-			url : '/user/list',
+			url : '/users',
 			id : 'userList'
 		}, {
 			text : 'VIEW',

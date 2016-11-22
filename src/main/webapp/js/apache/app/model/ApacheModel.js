@@ -1,10 +1,10 @@
 Ext.define('Apache.model.ApacheModel', {
 	extend : 'Ext.data.Model',
 	fields : [ {
-		name : 'firstName',
+		name : 'key',
 		type : 'string'
 	}, {
-		name : 'lastName',
+		name : 'value',
 		type : 'string'
 	} ]
 });

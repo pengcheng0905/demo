@@ -1,17 +1,18 @@
 Ext.define('Apache.view.ApacheList', {
 	extend : 'Ext.grid.Panel',
 	alias : 'widget.apachelist',
+	collapsible : true,
 
 	store : 'ApacheStore',
 	initComponent : function() {
 
 		this.columns = [ {
-			header : 'firstName',
-			dataIndex : 'firstName',
-			flex : 1
+			header : 'Key',
+			dataIndex : 'key',
+			flex : 0.5
 		}, {
-			header : 'lastName',
-			dataIndex : 'lastName',
+			header : 'Status',
+			dataIndex : 'value',
 			flex : 1
 		} ];
 

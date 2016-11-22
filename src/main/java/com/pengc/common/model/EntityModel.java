@@ -10,6 +10,7 @@ import javax.persistence.Version;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.json.JSONObject;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @MappedSuperclass
 public class EntityModel implements Serializable, EntityImpl {
@@ -20,6 +21,7 @@ public class EntityModel implements Serializable, EntityImpl {
 	@GeneratedValue(generator = "idGenerator")
 	private String id;
 
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createDate;
 
 	private String createBy;
