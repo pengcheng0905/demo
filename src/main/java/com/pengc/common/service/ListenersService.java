@@ -39,15 +39,18 @@ public abstract class ListenersService {
 		}
 	}
 
-	public void readBufferedReader(BufferedReader bufferedReader) {
+	public StringBuffer readBufferedReader(BufferedReader bufferedReader) {
+		StringBuffer sb = new StringBuffer();
 		String s;
 		try {
 			while ((s = bufferedReader.readLine()) != null) {
 				System.out.println(s);
+				sb.append(s);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return sb;
 	}
 
 	public Document getHtml(String url) {
@@ -55,7 +58,7 @@ public abstract class ListenersService {
 		try {
 			doc = Jsoup.connect(url).get();
 		} catch (IOException e) {
-//			e.printStackTrace();
+			// e.printStackTrace();
 		}
 		return doc;
 	}

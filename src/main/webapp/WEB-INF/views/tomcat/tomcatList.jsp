@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Main Page</title>
-<script type="text/javascript" src="/js/apache/app.js"></script>
+<script type="text/javascript" src="/js/tomcat/TomcatApp.js"></script>
 </head>
 <body>
 </body>

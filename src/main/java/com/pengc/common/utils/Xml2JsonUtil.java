@@ -1,104 +1,28 @@
 package com.pengc.common.utils;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
+import org.apache.log4j.Logger;
+import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.XML;
+
+import javassist.bytecode.stackmap.TypeData.ClassName;
 
 public class Xml2JsonUtil {
-	/**
-	 * 转换一个xml格式的字符串到json格式
-	 * 
-	 * @param xml
-	 *            xml格式的字符串
-	 * @return 成功返回json 格式的字符串;失败反回null
-	 */
-	public static String xml2JSON(String xml) {
-		JSONObject obj = new JSONObject();
+	public static Logger logger = Logger.getLogger(ClassName.class);
+
+	public static JSONObject xml2JSON(String xml) {
+		JSONObject jsonObj = null;
 		try {
-			InputStream is = new ByteArrayInputStream(xml.getBytes("utf-8"));
-			SAXBuilder sb = new SAXBuilder();
-			Document doc = sb.build(is);
-			Element root = doc.getRootElement();
-			obj.put(root.getName(), iterateElement(root));
-			return obj.toString();
-		} catch (Exception e) {
+			jsonObj = XML.toJSONObject(xml);
+		} catch (JSONException e) {
 			e.printStackTrace();
-			return null;
 		}
+		logger.info(jsonObj.toString(4));
+		return jsonObj;
 	}
 
-	/**
-	 * 转换一个xml格式的字符串到json格式
-	 * 
-	 * @param file
-	 *            java.io.File实例是一个有效的xml文件
-	 * @return 成功反回json 格式的字符串;失败反回null
-	 */
-	public static String xml2JSON(File file) {
-		JSONObject obj = new JSONObject();
-		try {
-			SAXBuilder sb = new SAXBuilder();
-			Document doc = sb.build(file);
-			Element root = doc.getRootElement();
-			obj.put(root.getName(), iterateElement(root));
-			return obj.toString();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
-	/**
-	 * 一个迭代方法
-	 * 
-	 * @param element
-	 *            : org.jdom.Element
-	 * @return java.util.Map 实例
-	 */
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private static Map iterateElement(Element element) {
-		List jiedian = element.getChildren();
-		Element et = null;
-		Map obj = new HashMap();
-		List list = null;
-		for (int i = 0; i < jiedian.size(); i++) {
-			list = new LinkedList();
-			et = (Element) jiedian.get(i);
-			if (et.getTextTrim().equals("")) {
-				if (et.getChildren().size() == 0)
-					continue;
-				if (obj.containsKey(et.getName())) {
-					list = (List) obj.get(et.getName());
-				}
-				list.add(iterateElement(et));
-				obj.put(et.getName(), list);
-			} else {
-				if (obj.containsKey(et.getName())) {
-					list = (List) obj.get(et.getName());
-				}
-				list.add(et.getTextTrim());
-				obj.put(et.getName(), list);
-			}
-		}
-		return obj;
-	}
-
-	// 测试
 	public static void main(String[] args) {
-		System.out.println(Xml2JsonUtil
-				.xml2JSON("<MapSet>" + "<MapGroup id='Sheboygan'>" + "<Map>" + "<Type>MapGuideddddddd</Type>"
-						+ "<SingleTile>true</SingleTile>" + "<Extension>" + "<ResourceId>ddd</ResourceId>"
-						+ "</Extension>" + "</Map>" + "<Map>" + "<Type>ccc</Type>" + "<SingleTile>ggg</SingleTile>"
-						+ "<Extension>" + "<ResourceId>aaa</ResourceId>" + "</Extension>" + "</Map>" + "<Extension />"
-						+ "</MapGroup>" + "<ddd>" + "33333333" + "</ddd>" + "<ddd>" + "444" + "</ddd>" + "</MapSet>"));
+		System.out.println(Xml2JsonUtil.xml2JSON(
+				"<status><jvm><memory free='254596584' total='417857536' max='1849688064'/><memorypool name='PS Eden Space' type='Heap memory' usageInit='32505856' usageCommitted='260046848' usageMax='640679936' usageUsed='122017728'/><memorypool name='PS Old Gen' type='Heap memory' usageInit='87031808' usageCommitted='132120576' usageMax='1387266048' usageUsed='41243224'/><memorypool name='PS Survivor Space' type='Heap memory' usageInit='5242880' usageCommitted='25690112' usageMax='25690112' usageUsed='0'/><memorypool name='Code Cache' type='Non-heap memory' usageInit='2555904' usageCommitted='14024704' usageMax='251658240' usageUsed='13860160'/><memorypool name='Compressed Class Space' type='Non-heap memory' usageInit='0' usageCommitted='5505024' usageMax='1073741824' usageUsed='5219448'/><memorypool name='Metaspace' type='Non-heap memory' usageInit='0' usageCommitted='43474944' usageMax='-1' usageUsed='42629032'/></jvm><connector name=''ajp-nio-8889''><threadInfo  maxThreads='200' currentThreadCount='0' currentThreadsBusy='0' /><requestInfo  maxTime='0' processingTime='0' requestCount='0' errorCount='0' bytesReceived='0' bytesSent='0' /><workers></workers></connector><connector name=''http-nio-8888''><threadInfo  maxThreads='200' currentThreadCount='10' currentThreadsBusy='1' /><requestInfo  maxTime='498' processingTime='2679' requestCount='73' errorCount='5' bytesReceived='0' bytesSent='113628' /><workers><worker  stage='R' requestProcessingTime='0' requestBytesSent='0' requestBytesReceived='0' remoteAddr='&#63;' virtualHost='&#63;' method='&#63;' currentUri='&#63;' currentQueryString='&#63;' protocol='&#63;' /><worker  stage='S' requestProcessingTime='5' requestBytesSent='0' requestBytesReceived='0' remoteAddr='0:0:0:0:0:0:0:1' virtualHost='localhost' method='GET' currentUri='/manager/status' currentQueryString='XML=true' protocol='HTTP/1.1' /><worker  stage='R' requestProcessingTime='0' requestBytesSent='0' requestBytesReceived='0' remoteAddr='&#63;' virtualHost='&#63;' method='&#63;' currentUri='&#63;' currentQueryString='&#63;' protocol='&#63;' /><worker  stage='R' requestProcessingTime='0' requestBytesSent='0' requestBytesReceived='0' remoteAddr='&#63;' virtualHost='&#63;' method='&#63;' currentUri='&#63;' currentQueryString='&#63;' protocol='&#63;' /></workers></connector></status>"));
 	}
 }
