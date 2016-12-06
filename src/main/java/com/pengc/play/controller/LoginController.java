@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.pengc.common.controller.CommonController;
 import com.pengc.common.model.ReturnData;
 import com.pengc.play.model.Users;
 import com.pengc.play.service.UsersService;
 
 @Controller
 @RequestMapping(value = "/login")
-public class LoginController {
+public class LoginController extends CommonController {
 
 	public final static String LOGIN_PAGE = "/login/login";
 	public final static String MAIN_PAGE = "/main/main";

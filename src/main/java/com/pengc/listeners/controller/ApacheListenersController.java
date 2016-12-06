@@ -8,12 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.pengc.common.controller.ListenersController;
+import com.pengc.common.controller.CommonController;
 import com.pengc.listeners.service.ApacheService;
 
 @Controller
 @RequestMapping(value = "/apache")
-public class ApacheListenersController extends ListenersController {
+public class ApacheListenersController extends CommonController {
 	@Autowired
 	public ApacheService apacheService;
 

@@ -32,7 +32,7 @@
 
 	<context-param>
 		<param-name>log4jConfigLocation</param-name>
-		<param-value>/WEB-INF/log4j.properties</param-value>
+		<param-value>classpath:/log4j/log4j.properties</param-value>
 	</context-param>
 	<context-param>
 		<param-name>log4jRefreshInterval</param-name>
@@ -42,7 +42,7 @@
 	<listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 	</listener>
-	
+
 	<!-- Spring配置。（必须配，要不会找不到bean） -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -50,18 +50,22 @@
 
 	<!-- spring mvc （系统在启动的时候会根据springmvc-servlet中的配置找到所有的controller并初始化） -->
 	<servlet>
-		<servlet-name>springmvc</servlet-name>
+		<servlet-name>play</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:/spring/springmvc-servlet.xml</param-value>
+		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>springmvc</servlet-name>
+		<servlet-name>play</servlet-name>
 		<url-pattern>/</url-pattern><!-- 这里不能加* -->
 	</servlet-mapping>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/applicationContext.xml</param-value>
+		<param-value>classpath:applicationContext.xml</param-value>
 	</context-param>
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>

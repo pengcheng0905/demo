@@ -6,13 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.pengc.common.controller.ListenersController;
+import com.pengc.common.controller.CommonController;
 import com.pengc.common.utils.Xml2JsonUtil;
 import com.pengc.listeners.service.TomcatService;
 
 @Controller
 @RequestMapping(value = "/tomcat")
-public class TomcatListenersController extends ListenersController {
+public class TomcatListenersController extends CommonController {
 
 	@Autowired
 	public TomcatService tomcatService;
