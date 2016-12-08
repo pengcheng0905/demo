@@ -45,7 +45,6 @@ public class UserController extends CommonController{
 		patliteUtils.initPatlite("127.0.0.1");
 		ReturnData<Users> returnData = new ReturnData<Users>();
 		List<Users> userList = userService.getAll();
-		returnData.setSuccess(userList.size() == 1);
 		returnData.setDatas(userList);
 		return returnData;
 	}

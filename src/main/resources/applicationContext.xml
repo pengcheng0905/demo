@@ -70,8 +70,9 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<!-- 开启事务管理注解 -->
-	<!-- <aop:aspectj-autoproxy /> -->
-	<!-- <tx:annotation-driven /> -->
+
+	<aop:aspectj-autoproxy />
+		<!-- 开启事务管理注解 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
 
 </beans>
