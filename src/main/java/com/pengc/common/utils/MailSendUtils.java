@@ -12,8 +12,8 @@ import javax.mail.internet.MimeMessage;
 
 public class MailSendUtils {
 	public static final String HOST = "smtp.gmail.com";
-	public static final String FORM_USER = "pengchenggo@gmail.com";
-	public static final String FORM_USER_PASSWORD = "pengcheng";
+	public static final String FORM_USER = "";
+	public static final String FORM_USER_PASSWORD = "";
 	public static final String PORT = "587";
 	public static final String[] TO_EMAILS = { "pengc_2012@126.com" };
 	// TITLE

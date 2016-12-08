@@ -21,6 +21,18 @@ public class CommonConfig {
 	@Value("${PatitePort}")
 	public String patitePort;
 
+	@Value("${DefaultMailHost}")
+	public String defaultMailHost;
+
+	@Value("${DefaultMailUser}")
+	public String defaultMailUser;
+
+	@Value("${DefaultMailPassword}")
+	public String defaultMailPassword;
+
+	@Value("${DefaultMailPort}")
+	public String defaultMailPort;
+
 	public String getAlerm() {
 		return alerm;
 	}
@@ -39,6 +51,22 @@ public class CommonConfig {
 
 	public String getPatitePort() {
 		return patitePort;
+	}
+
+	public String getDefaultMailHost() {
+		return defaultMailHost;
+	}
+
+	public String getDefaultMailUser() {
+		return defaultMailUser;
+	}
+
+	public String getDefaultMailPassword() {
+		return defaultMailPassword;
+	}
+
+	public String getDefaultMailPort() {
+		return defaultMailPort;
 	}
 
 }
