@@ -27,15 +27,18 @@ Ext.define('Play.controller.menu.MenuController', {
 		var mainTabPanel = Ext.getCmp('mainTabPanel');
 		var tab = Ext.getCmp(id);
 		if (!tab) {
-			tab = new Ext.panel.Panel({
-				id : id,
-				enableTabScroll : true,
-				closable : true,
-				autoScroll : true,
-				layout : 'fit',
-				title : title,
-				html: ' <iframe scrolling="auto" frameborder="0" width="100%" height="100%" src="'+ url +'"> </iframe>'
-			});
+			tab = Ext.create('User.view.UserList');
+
+			// tab = new Ext.panel.Panel({
+			// id : id,
+			// enableTabScroll : true,
+			// closable : true,
+			// autoScroll : true,
+			// layout : 'fit',
+			// title : title,
+			// html: ' <iframe scrolling="auto" frameborder="0" width="100%"
+			// height="100%" src="'+ url +'"> </iframe>'
+			// });
 			mainTabPanel.add(tab);
 		}
 		mainTabPanel.setActiveTab(tab);

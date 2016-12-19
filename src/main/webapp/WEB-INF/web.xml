@@ -42,6 +42,11 @@
 	<listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 	</listener>
+	
+	<!-- 垃圾回收 Listener -->
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
 
 	<!-- Spring配置。（必须配，要不会找不到bean） -->
 	<listener>
